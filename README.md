@@ -1,3 +1,16 @@
+<h1>Library Management</h1>
+<b>key fetures</b>:<br> 1. Create  books operation for library<br>
+               2. Student can register and login <br>
+                3. add books, delete books, update book, record books, record quantity<br>
+<b>Technology used</b><br>
+    1. HTML, CSS, Bootstrap 5, Jquery <br>
+     2. PHP, Laravel
+
+        
+
+<p> I have crated this project for learning the basic MVC pattern of Laravel.<br> Actually Laravel is very easy and it provides very powefull template for designing.</p>
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
