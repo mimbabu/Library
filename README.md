@@ -11,6 +11,25 @@
 <p> I have crated this project for learning the basic MVC pattern of Laravel.<br> Actually Laravel is very easy and it provides very powefull template for designing.</p>
 
 
+  
+## Installation
+
+Install My project  with npm
+
+1. Install xampp or lamp or mamp
+2. Set UP the php path in your PC 
+3. Install composer 
+4. Install npm 
+5. Install laravel Via composer
+6. Go to your htdocs root directory and paste this project
+7. set up Database connection with proper user name and password
+8. Run comment php artisan ser
+9. Run npm comment "npm run dev"
+Then server will start
+browse the url.
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
