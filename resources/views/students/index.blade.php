@@ -35,7 +35,7 @@
                     <td>{{$item->book_name}}</td>
                     <td>{{$item->author_name}}</td>
                     <td>{{$item->qty}}</td>
-                    <td>{{$item->file_path}}</td>
+                    <td><img src="{{ asset($item->file_path) }}" width="50" height="50" class="img-responsive"/></td>
 
 
         <td> 

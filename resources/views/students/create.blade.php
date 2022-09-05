@@ -10,7 +10,7 @@
 
 
     <div class="card-body">
-    <form method="post" action="{{url('student')}}" >
+    <form method="post" action="{{url('student')}}" enctype="multipart/form-data" >
         
 @csrf
     <label>Name</label><br>
@@ -23,7 +23,7 @@
     <label>Qty</label></br>
     <input type="number" class="form-control" name="qty" placeholder="Enter qty "></br>
     <label>Cover</label></br>
-    <input type="text" class="form-control" name="file_path" placeholder="Enter book image "></br>
+    <input type="file" class="form-control" name="file_path"></br>
 
     <input type="submit" value="save" class="btn btn-success"></br>
 </form>

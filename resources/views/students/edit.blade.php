@@ -9,9 +9,10 @@
 
 <div class="card-body">
   
-<form action="{{ url( 'student/' .$students->id) }}" method="POST" >
-{!! csrf_field() !!}
-    @method("PATCH")
+<form action="{{ url( 'student/' .$students->id) }}" method="POST" enctype="multipart/form-data" >
+@csrf
+
+    @method("PUT")
 
 <input type="hidden" name="id" id="id" value="{{$students->id}}" class="form-control"/>
 
@@ -27,12 +28,14 @@
 <input type="text" name="qty" id="qty" value="{{$students->qty}}" class="form-control"/><br/>
 
 <label>Cover</label><br/>
-<input type="text" name="file_path" id="file_path" value="{{$students->file_path}}" class="form-control"/><br/>
+<input type="file" name="file_path" id="file_path" value="{{'$students->file_path'.'$students->id'}}" class="form-control"/><br/>
 
 <input type="submit"  value="Update"class="btn btn-info"/> <br/>
 
 
 </form>
+
+<a href="{{url('/student')}}"  title="Add New"Style=" float:right;"><button class="btn btn-info btn-sm" "><span><i class="fa-solid fa-book-user"></i></span>Back</button></a>
 </div>
 </div>
 </div>

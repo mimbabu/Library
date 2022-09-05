@@ -37,9 +37,16 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $input =  $request->all();
-        Student::create($input);
-        return redirect('student')->with('flash_massage', 'Book added successfully');
+        // $input =  $request->all();
+        // Student::create($input);
+        // return redirect('student')->with('flash_massage', 'Book added successfully');
+        
+        $requestData = $request->all();
+        $fileName= time().$request->file('file_path')->getClientOriginalName();
+        $path = $request->file('file_path')->storeAs('images', $fileName,'public');
+        $requestData["file_path"] = '/storage/' .$path;
+        Student::create($requestData);
+        return redirect('student')->with('flash_message', 'Employee Added!');
     }
 
     /**
