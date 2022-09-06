@@ -28,7 +28,7 @@
 <input type="text" name="qty" id="qty" value="{{$students->qty}}" class="form-control"/><br/>
 
 <label>Cover</label><br/>
-<input type="file" name="file_path" id="file_path" value="{{'$students->file_path'.'$students->id'}}" class="form-control"/><br/>
+<input type="file" name="file_path" id="file_path" src="{{asset('images')}}/{{'$students->file_path'}}" class="form-control"/><br/>
 
 <input type="submit"  value="Update"class="btn btn-info"/> <br/>
 

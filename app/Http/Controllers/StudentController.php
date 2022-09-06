@@ -72,6 +72,7 @@ class StudentController extends Controller
     {
         $student= Student::find($id);
         return view("students.edit")->with("students" , $student);
+       
     }
 
     /**
@@ -81,7 +82,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         $student =  Student::find($id);
         $input =$request->all();
