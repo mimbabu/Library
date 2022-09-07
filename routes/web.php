@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\StudentController;
+use App\http\Controllers\Backend\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,6 @@ require __DIR__.'/auth.php';
 
 
 Route::resource('/student', StudentController::class);
+
+
+Route::get( '/admin', [PagesController::class,'index']);
