@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\StudentController;
 use App\http\Controllers\Backend\PagesController;
+use App\http\Controllers\Book\BookuoloadController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +31,6 @@ Route::resource('/student', StudentController::class);
 
 
 Route::get( '/admin', [PagesController::class,'index']);
+
+
+Route::get('/book',[BookuoloadController::class,'index']);
