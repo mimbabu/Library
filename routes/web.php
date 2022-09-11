@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\StudentController;
 use App\http\Controllers\Backend\PagesController;
-use App\http\Controllers\Book\BookuoloadController;
+use App\http\Controllers\Book\BookuploadController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +33,7 @@ Route::resource('/student', StudentController::class);
 Route::get( '/admin', [PagesController::class,'index']);
 
 
-Route::get('/book',[BookuoloadController::class,'index']);
+Route::get('/book',[BookuploadController::class,'index']);
+Route::get('/add-book',[BookuploadController::class,'store']);
+Route::get('/edit-book/{id}',[BookuploadController::class,'edit']);
+Route::get('/delete-book',[BookuploadController::class,'delete']);

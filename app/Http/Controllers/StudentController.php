@@ -88,7 +88,21 @@ class StudentController extends Controller
         $input =$request->all();
         $student->update($input);
         return redirect('student')->with('flash_massage', 'Book updated successfully');
+
+        if($request->hasFile('file_path')){
+            $file_path = $request->file('file_path');
+            $file_path_name = $file_path->getClientOriginalName();
+            $file_path->move(public_path('/images'),$file_path_name);
+        
+            $file_path_path = "/images/" . $file_path_name;
+        }
+
+
     }
+
+  
+
+
 
     /**
      * Remove the specified resource from storage.

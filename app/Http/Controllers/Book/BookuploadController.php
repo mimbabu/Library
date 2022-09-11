@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Book;
-use App\Http\Models\bookupload;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Models\Bookupload;
+use DB;
 
-class BookuoloadController extends Controller
+class BookuploadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,11 @@ class BookuoloadController extends Controller
      */
     public function index()
     {
-        return view('bookupload/index');
+
+        $bookuploads = DB::table('bookupload')->get();
+
+        return view('bookupload/index', compact('bookuploads'));
+        
     }
 
     /**
@@ -24,7 +29,8 @@ class BookuoloadController extends Controller
      */
     public function create()
     {
-        //
+        $bookupload= Bookupload::find($id);
+        return view('bookupload/create');
     }
 
     /**
@@ -57,7 +63,8 @@ class BookuoloadController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bookupload= Bookupload::find($id);
+        return view('bookupload/edit');
     }
 
     /**
