@@ -2,57 +2,61 @@
 @section('content')
 
 
-    
+
+<div class="container">
+    <div class="row m-5 p-5">
+
+<div class="card ">
+<div class="card-heder p-2 text-center"><h2>Edit Book here</h2></div>
+
+<div class="card-body">
+  
+<form action="{{url('/bookupload')}}" method="POST" enctype="multipart/form-data" >
+@csrf
+
+    @method("PUT")
+
+<input type="hidden" name="id" id="id" value="{{$bookuploads->id}}" class="form-control"/>
+
+<label>Book Name</label><br/>
+<input type="text" name="book_name" id="book_name" value="{{$bookuploads->book_name}}" class="form-control"/><br/>
 
 
-<div class="row">
-      
+<label>Author Name</label><br/>
+<input type="text" name="author_name" id="author_name" value="{{$bookuploads->author_name}}" class="form-control"/><br/>
 
 
 
-      <table id="example" class="table table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Book Name</th>
-                <th>Author</th>
-                <th>Category</th>
-                <th>Qty</th>
-                <th>Cover</th>
-                <th>Publish Year</th>
-                <th>Strorage Date</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            @foreach ($bookuploads as $book)
+<label>Category ID</label><br/>
+<input type="text" name="category_Id" id="qty" value="{{$bookuploads->category_Id}}" class="form-control"/><br/>
 
 
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $book->book_name }}</td>
-                <td>{{ $book->author_name	 }}</td>
-                <td>{{ $book->category_Id }}</td>
-                <td>{{ $book->qty }}</td>
-                <td> <img src="{{('/storage/images/'.$book->cover ) }}" width="80px", height="70px" class="img-responsive" alt="image"</td>
-                <td>{{ $book->storage_date	 }}</td>
-                <td>{{ $book->publish_year }}</td>
-                <td>
-                    <form action="" method="post">
+<label>Qty</label><br/>
+<input type="text" name="qty" id="qty" value="{{$bookuploads->qty}}" class="form-control"/><br/>
 
-                    <a  class="btn btn-success" href="{{ url('bookupload.add/') }}" >Add</a>
-                    <a  class="btn btn-info" href="{{ url('view-book'.$book->id) }}" >View</a>
-                    <a  class="btn btn-primary" href="{{url('edit-book' .$book->id)}}">Edit</a>
-                    <a  class="btn btn-danger" href="{{url('delete-book'.$book->id)}}">Delete</a>
-                    </form>
-                  
-                </td>
-            </tr>
-          
-            @endforeach
-        </tbody>
-       
-    </table>
+<label>Cover</label><br/>
+<input type="file" name="file_path" id="file_path"  src="{{ asset('storage/app/public/images .$bookuploads->file_path') }}" class="form-control"/><br/>
+
+
+<label>Publish year</label><br/>
+<input type="text" name="qty" id="qty" value="{{$bookuploads->publish_year}}" class="form-control"/><br/>
+
+
+
+<label>Storage date</label><br/>
+<input type="text" name="qty" id="qty" value="{{$bookuploads->storage_date}}" class="form-control"/><br/>
+
+
+<input type="submit"  value="Update"class="btn btn-info"/> <br/>
+
+
+</form>
+
+<a href="{{url('/bookupload')}}"  title="Add New"Style=" float:right;">
+<button class="btn btn-info btn-sm" "><span><i class="fa-solid fa-book-user"></i></span>Back</button></a>
+</div>
+</div>
+</div>
 </div>
 
 

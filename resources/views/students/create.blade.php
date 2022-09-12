@@ -26,9 +26,11 @@
     <input type="file" class="form-control" name="file_path"></br>
 
     <input type="submit" value="save" class="btn btn-success"></br>
-</form>
+    </form>
 
-<a href="{{url('/student')}}"  title="Add New"Style=" float:right;"><button class="btn btn-info btn-sm" "><span><i class="fa-solid fa-book-user"></i></span>Back</button></a>
+      <a href="{{url('/student')}}"  title="Add New"Style=" float:right;">
+    
+      <button class="btn btn-info btn-sm" ">Back</button></a>
 
     </div>
     </div>

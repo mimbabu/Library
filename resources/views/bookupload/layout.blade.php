@@ -18,7 +18,7 @@
 <body>
     
 <div class="container pt-5 mt-5">
-    @yield('content');
+    @yield('content')
 
 
     </div>

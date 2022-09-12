@@ -40,9 +40,9 @@
                 <td>
                     <form action="" method="post">
 
-                    <a  class="btn btn-success" href="{{ url('bookupload/add/') }}" >Add</a>
-                    <a  class="btn btn-info" href="{{ url('view-book'.$book->id) }}" >View</a>
-                    <a  class="btn btn-primary" href="{{url('bookupload/edit' .$book->id)}}">Edit</a>
+                    <a  class="btn btn-success" href="{{ url('/add-book') }}" >Add</a>
+                    <a  class="btn btn-info" href="{{ url('/show-book/{id}') }}" >View</a>
+                    <a  class="btn btn-primary" href="{{url('/edit-book/{id}' .$book->id)}}">Edit</a>
                     <a  class="btn btn-danger" href="{{url('delete-book'.$book->id)}}">Delete</a>
                     </form>
                   
