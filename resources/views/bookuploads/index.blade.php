@@ -1,4 +1,4 @@
-@extends('bookupload.layout')
+@extends('bookuploads.layout')
 @section('content')
 
 
@@ -34,17 +34,24 @@
                 <td>{{ $book->author_name	 }}</td>
                 <td>{{ $book->category_Id }}</td>
                 <td>{{ $book->qty }}</td>
-                <td> <img src="{{('/storage/images/'.$book->cover ) }}" width="80px", height="70px" class="img-responsive" alt="image"</td>
+                <td> <img src="{{('/uploads/bookuploads/'.$book->cover ) }}" width="80px", height="70px" class="img-responsive" alt="image"</td>
                 <td>{{ $book->storage_date	 }}</td>
                 <td>{{ $book->publish_year }}</td>
                 <td>
-                    <form action="" method="post">
-
+                    <form action="/delete-book" method="post">
+                 
                     <a  class="btn btn-success" href="{{ url('/add-book') }}" >Add</a>
                     <a  class="btn btn-info" href="{{ url('/show-book/{id}') }}" >View</a>
                     <a  class="btn btn-primary" href="{{url('/edit-book/{id}' .$book->id)}}">Edit</a>
-                    <a  class="btn btn-danger" href="{{url('delete-book'.$book->id)}}">Delete</a>
+                    <a  class="btn btn-danger" href="{{url('/delete-book/{id}')}}">Delete</a>
                     </form>
+<!-- 
+                    <form method="POST" action="{{ url( '/delete-book/{id}' . '/'. $book->id) }}"  accept-charset="UTF-8" Style="display: inline ;" >
+            
+            {{ method_field('DELETE') }}
+            {{ csrf_field() }}
+         <button class="btn btn-danger btn-sm" type="submit" title="Delete Book" onClick="return Confirm("Confirm Delete") "><i class="fa-solid fa-book-user"></i>Delete</button>
+     </form> -->
                   
                 </td>
             </tr>

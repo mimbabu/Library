@@ -17,7 +17,7 @@ class BookuploadController extends Controller
     {
 
 $bookuploads = Bookupload:: all();
-return view('bookupload/index', ['bookuploads'=>$bookuploads]);
+return view('bookuploads/index', ['bookuploads'=>$bookuploads]);
 
         // $bookuploads = DB::table('bookuploads')->get();
 
@@ -33,7 +33,7 @@ return view('bookupload/index', ['bookuploads'=>$bookuploads]);
     public function create()
     {
       
-        return view('bookupload.create');
+        return view('bookuploads.create');
     }
 
     /**
@@ -42,34 +42,40 @@ return view('bookupload/index', ['bookuploads'=>$bookuploads]);
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-//         $bookupload = new Bookupload;
+        //return $request->input();
+        // print_r($_REQUEST);
+        // die();
+        $bookupload = new Bookupload;
 
-//         $bookupload->book_name   =  $request->book_name;
-//         $bookupload->author_name =  $request->author_name;
-//         $bookupload->category_Id =  $request->category_Id;
-//         $bookupload->qty         =  $request->qty;
+        $bookupload->book_name   =  $request->book_name;
+        $bookupload->author_name =  $request->author_name;
+        $bookupload->category_Id =  $request->category_Id;
+        $bookupload->qty         =  $request->qty;
 
-//  if($request->hasfile('cover')){
+ if($request->hasfile('cover')){
 
-//     $file = $request->file('cover');
-//     $extention =$file->getClientOriginalExtension();
-//     $filename = time().'.'.extention;
-//     $file->move('uploads/bookuploads', $filename);
-//     $bookupload->cover=$filename;
+    $file = $request->file('cover');
+    $extension =$file->getClientOriginalExtension();
+    $filename = time().'.'.$extension;
+    $file->move('uploads/bookuploads', $filename);
+    $bookupload->cover=$filename;
 
-//  }
+ }
+else{
+    return $request;
+    $bookupload ->cover= '';
+}
+
+        $bookupload->publish_year =  $request->publish_year;
+        $bookupload->storage_date =  $request->storage_date;
+
+        $bookupload->save();
+        return redirect('/book')->with('status','Book added successfully.');
 
 
-//         $bookupload->publish_year =  $request->publish_year;
-//         $bookupload->storage_date =  $request->storage_date;
 
-//         $bookupload->save();
-//         return redirect->back()->with('status','Book added successfully.');
-
-
-return "Hello from the controller";
     }
 
     /**
@@ -80,8 +86,8 @@ return "Hello from the controller";
      */
     public function show($id)
     {
-        $bookuploads= Bookupload::find($id);
-        return view("bookupload.show")->with("bookupload" , $bookuploads);
+        $bookupload= Bookupload::find($id);
+        return view('bookuploads/show')->with("bookuploads" , $bookupload);
     }
 
     /**
@@ -92,8 +98,10 @@ return "Hello from the controller";
      */
     public function edit($id)
     {
-        $bookuploads= Bookupload::find($id);
-        return view("bookupload.edit")->with('Bookupload',$bookuploads);
+        $bookupload= Bookupload::find($id);
+        return view("bookuploads.edit")->with('bookuploads',$bookupload);
+
+        
     }
 
     /**
@@ -108,7 +116,7 @@ return "Hello from the controller";
         $bookupload =  Bookupload::find($id);
         $input =$request->all();
         $bookupload->update($input);
-        return redirect('bookupload')->with('flash_massage', 'Book updated successfully');
+        return redirect('bookuploads')->with('flash_massage', 'Book updated successfully');
 
     }
 
@@ -131,6 +139,10 @@ return "Hello from the controller";
     public function destroy($id)
     {
         Bookupload::destroy($id);
-        return redirect('bookupload')->with('flash_massage', 'Book Deleted successfully');
+        return redirect('/delete-book/{id}')->with('flash_massage', 'Book Deleted successfully');
+
+
+
+       
     }
 }

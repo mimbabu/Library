@@ -86,17 +86,18 @@ class StudentController extends Controller
     {
         $student =  Student::find($id);
         $input =$request->all();
+       
+    //   unlink(public_path().'/images/' .$request->file_path);
+
+        // if($request->hasFile('file_path')){
+        //     $file_path = $request->file('file_path');
+        //     $file_path_name = $file_path->getClientOriginalName();
+        //     $file_path->move(public_path('/images'),$file_path_name);
+        
+        //     $file_path_path = "/images/" . $file_path_name;
+        // }
         $student->update($input);
         return redirect('student')->with('flash_massage', 'Book updated successfully');
-
-        if($request->hasFile('file_path')){
-            $file_path = $request->file('file_path');
-            $file_path_name = $file_path->getClientOriginalName();
-            $file_path->move(public_path('/images'),$file_path_name);
-        
-            $file_path_path = "/images/" . $file_path_name;
-        }
-
 
     }
 

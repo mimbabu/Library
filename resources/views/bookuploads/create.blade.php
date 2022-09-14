@@ -1,11 +1,13 @@
-@extends('bookupload.layout')
+@extends('bookuploads.layout')
 @section('content')
 <div class="row mt-5">
 <div class="card" style="margin:20px;">
 <div class="card-header text-center"><h2>Upload New Books</h2></div>
 
 <div class="card-body">
-<form action="{{('/add-book/')}}" method="post" enctype="multipart/form-data">
+
+<form action="/store" method="POST" enctype="multipart/form-data">
+
 @csrf
             <label>Enter Book name</label><br>
             <input type="string" name="book_name" class="form-control"><br>
@@ -31,15 +33,15 @@
             <label>Enter Storage date</label><br>
             <input type="date" name="storage_date" class="form-control" ><br>
 
-
+            <input type="submit" class="btn btn-info" title="Add New"Style=" float:left;">
 </form>
 
 
-<a href="{{url('/add-book/')}}" input type="submit" class="btn btn-info" title="Add New"Style=" float:left;">Submit
+
+
+<a href="{{url('/book')}}" input type="submit" class="btn btn-danger" title="Add New"Style=" float:right;">back
     
 </a>
-
-<button class="btn btn-success"Style=" float:right;"> Back</button>
 </div>
 </div>
 </div>

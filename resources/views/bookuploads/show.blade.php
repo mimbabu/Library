@@ -1,4 +1,4 @@
-@extends('bookupload.layout')
+@extends('bookuploads.layout')
 @section('content')
 
 <div class="container">
@@ -13,7 +13,7 @@
     <p class="card-text">Category ID {{ $bookuploads->category_Id }}</p><br/>
     <p class="card-text">Qty:{{ $bookuploads->qty }}</p><br/>
 
-    <p class="card-text">Cover<br/><img src="{{($bookuploads->cover)}}" width="150" height="180" class="img-responsive"/></p>
+    <p class="card-text">Cover<br/><img src="{{uploads/bookuploads/ ($bookuploads->cover) }}" width="250" height="280" class="img-responsive"/></p>
 
     <p class="card-text">Publish year:{{ $bookuploads->publish_year }}</p><br>
     <p class="card-text">Storage Date:{{ $bookuploads->storage_date }}</p>

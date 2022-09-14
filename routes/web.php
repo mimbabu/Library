@@ -33,9 +33,14 @@ Route::resource('/student', StudentController::class);
 Route::get( '/admin', [PagesController::class,'index']);
 
 
-Route::get('/book',[BookuploadController::class,'index']);
-Route::get('/add-book',[BookuploadController::class,'create']);
-Route::post('/add-book',[BookuploadController::class,'store']);
-Route::get('/show-book/{id}',[BookuploadController::class,'show']);
-Route::get('/edit-book/{id}',[BookuploadController::class,'edit']);
-Route::get('/delete-book',[BookuploadController::class,'delete']);
+
+
+
+        Route::get('/book',[BookuploadController::class,'index']);
+        Route::get('/add-book',[BookuploadController::class,'create']);
+        Route::post('/store',[BookuploadController::class,'store']);
+        Route::get('/edit-book/{id}',[BookuploadController::class,'edit']);
+        Route::get('/delete-book/{id}',[BookuploadController::class,'destroy']);
+        Route::get('/show-book/{id}',[BookuploadController::class,'show']);
+
+

@@ -1,4 +1,4 @@
-@extends('bookupload.layout')
+@extends('bookuploads.layout')
 @section('content')
 
 
@@ -11,19 +11,18 @@
 
 <div class="card-body">
   
-<form action="{{url('/bookupload')}}" method="POST" enctype="multipart/form-data" >
+<form action="/edit-book/{id}" method="POST" enctype="multipart/form-data" >
 @csrf
 
     @method("PUT")
-
-<input type="hidden" name="id" id="id" value="{{$bookuploads->id}}" class="form-control"/>
-
+    @method("PATCH")
+  
 <label>Book Name</label><br/>
 <input type="text" name="book_name" id="book_name" value="{{$bookuploads->book_name}}" class="form-control"/><br/>
 
 
 <label>Author Name</label><br/>
-<input type="text" name="author_name" id="author_name" value="{{$bookuploads->author_name}}" class="form-control"/><br/>
+<input type="text" name="author_name" id="author_name" value="{{ $bookuploads->author_name}}" class="form-control"/><br/>
 
 
 
@@ -32,7 +31,7 @@
 
 
 <label>Qty</label><br/>
-<input type="text" name="qty" id="qty" value="{{$bookuploads->qty}}" class="form-control"/><br/>
+<input type="text" name="qty" id="qty" value="{{ $bookuploads->qty}}" class="form-control"/><br/>
 
 <label>Cover</label><br/>
 <input type="file" name="file_path" id="file_path"  src="{{ asset('storage/app/public/images .$bookuploads->file_path') }}" class="form-control"/><br/>
@@ -52,9 +51,10 @@
 
 </form>
 
-<a href="{{url('/bookupload')}}"  title="Add New"Style=" float:right;">
+<a href="{{url('/edit-book/{id}')}}"  title="Add New"Style=" float:right;">
 <button class="btn btn-info btn-sm" "><span><i class="fa-solid fa-book-user"></i></span>Back</button></a>
 </div>
+
 </div>
 </div>
 </div>
