@@ -47,6 +47,21 @@ return view('bookuploads/index', ['bookuploads'=>$bookuploads]);
         //return $request->input();
         // print_r($_REQUEST);
         // die();
+
+
+        $request->validate([
+            'book_name' => 'required',
+            'author_name' => 'required',
+            'category_Id' => 'required',
+            'qty' => 'required',
+            'cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'publish_year' => 'required',
+            'storage_date' => 'required',
+           
+        ]);
+
+        $input = $request->all();
+
         $bookupload = new Bookupload;
 
         $bookupload->book_name   =  $request->book_name;
@@ -84,9 +99,9 @@ else{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Bookupload $bookupload)
     {
-        $bookupload= Bookupload::find($id);
+        $bookupload= Bookupload::find($bookupload);
         return view('bookuploads/show')->with("bookuploads" , $bookupload);
     }
 
@@ -96,9 +111,9 @@ else{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Bookupload $bookupload)
     {
-        $bookupload= Bookupload::find($id);
+        $bookupload= Bookupload::find($bookupload);
         return view("bookuploads.edit")->with('bookuploads',$bookupload);
 
         
@@ -111,9 +126,27 @@ else{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Bookupload $bookupload)
     {
-        $bookupload =  Bookupload::find($id);
+
+
+        if($request->hasfile('cover')){
+
+            $file = $request->file('cover');
+            $extension =$file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/bookuploads', $filename);
+            $bookupload->cover=$filename;
+        
+         }
+
+         else{
+            unset($bookupload['cover']);
+         }
+         $bookupload->update($filename);
+
+
+        $bookupload =  Bookupload::find($bookupload);
         $input =$request->all();
         $bookupload->update($input);
         return redirect('bookuploads')->with('flash_massage', 'Book updated successfully');
@@ -136,9 +169,9 @@ else{
      */
 
 
-    public function destroy($id)
+    public function destroy(Bookupload $bookupload)
     {
-        Bookupload::destroy($id);
+        $bookupload->delete();
         return redirect('/delete-book/{id}')->with('flash_massage', 'Book Deleted successfully');
 
 

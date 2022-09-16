@@ -1,6 +1,5 @@
 <?php
-use App\Http\Controllers\Book\BookuoloadController;
-use App\Http\Models\Bookupload;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Bookuploads', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string("book_name");
             $table->string("author_name");
             $table->unsignedInteger("category_Id")->nullable();
             $table->string("qty");
-            $table->string("cover");
+            $table->string("image");
             $table->string("publish_year")->nullable();
             $table->string("storage_date")->nullable();
             $table->timestamps();
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bookuploads');
+        Schema::dropIfExists('books');
     }
 };

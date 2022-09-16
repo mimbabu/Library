@@ -1,26 +1,33 @@
-@extends('bookuploads.layout')
+@extends('books.layout')
 @section('content')
-<div class="row mt-5">
-<div class="card" style="margin:20px;">
-<div class="card-header text-center"><h2>Upload New Books</h2></div>
 
-<div class="card-body">
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
+
+<div class="row">
+   <div class="card" style="margin:20px;">
+     <div class="card-header text-center"><h2>Add New Books</h2></div>
+
+
+     <div class="card-body">
+
+     
+       @if ($errors->any())
+        <div class="alert alert-danger">
+         <strong>Whoops!</strong> There were some problems with your input.<br><br>
+          <ul>
+             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+             @endforeach
+         </ul>
+       </div>
+       @endif
+     
+        <form action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+    
+    
 
-<form action="/store" method="POST" enctype="multipart/form-data">
-
-@csrf
-            <label>Enter Book name</label><br>
+         <label>Enter Book name</label><br>
             <input type="string" name="book_name" class="form-control"><br>
 
             <label>Enter Author name</label><br>
@@ -35,7 +42,7 @@
           
 
             <label>Enter Book image</label><br>
-            <input type="file" name="cover" class="form-control" > <br>
+            <input type="file" name="image" class="form-control" > <br>
 
 
             <label>Publish year</label><br>
@@ -45,17 +52,13 @@
             <input type="date" name="storage_date" class="form-control" ><br>
 
             <input type="submit" class="btn btn-info" title="Add New"Style=" float:left;">
-</form>
 
+            <a class="btn btn-primary"  href="{{ route('books.index')  }}" Style=" float:right;"> Back</a>
+       </form>
 
-
-
-<a href="{{url('/book')}}" input type="submit" class="btn btn-danger" title="Add New"Style=" float:right;">back
-    
-</a>
+     </div>
+     
+     @endsection
+   </div>
+ 
 </div>
-</div>
-</div>
-
-
-@stop

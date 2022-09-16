@@ -2,6 +2,8 @@
 use App\Http\Controllers\StudentController;
 use App\http\Controllers\Backend\PagesController;
 use App\http\Controllers\Book\BookuploadController;
+use App\http\Controllers\Book\CategoryController;
+use App\Http\Controllers\BookController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -32,11 +34,7 @@ Route::resource('/student', StudentController::class);
 
 Route::get( '/admin', [PagesController::class,'index']);
 
-
-
-
-
-        Route::get('/book',[BookuploadController::class,'index']);
+Route::get('/book',[BookuploadController::class,'index']);
         Route::get('/add-book',[BookuploadController::class,'create']);
         Route::post('/store',[BookuploadController::class,'store']);
         Route::get('/edit-book/{id}',[BookuploadController::class,'edit']);
@@ -44,3 +42,10 @@ Route::get( '/admin', [PagesController::class,'index']);
         Route::get('/show-book/{id}',[BookuploadController::class,'show']);
 
 
+
+    
+
+
+        Route::resource('/books', BookController::class);
+
+        Route::resource('/categories', CategoryController::class);

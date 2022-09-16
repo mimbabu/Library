@@ -2,7 +2,11 @@
 @section('content')
 
 
-    
+@if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif 
 
 
 <div class="row">
@@ -43,7 +47,13 @@
                     <a  class="btn btn-success" href="{{ url('/add-book') }}" >Add</a>
                     <a  class="btn btn-info" href="{{ url('/show-book/{id}') }}" >View</a>
                     <a  class="btn btn-primary" href="{{url('/edit-book/{id}' .$book->id)}}">Edit</a>
-                    <a  class="btn btn-danger" href="{{url('/delete-book/{id}')}}">Delete</a>
+
+                    
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <!-- <a  class="btn btn-danger" href="{{url('/delete-book/{id}')}}">Delete</a> -->
                     </form>
 <!-- 
                     <form method="POST" action="{{ url( '/delete-book/{id}' . '/'. $book->id) }}"  accept-charset="UTF-8" Style="display: inline ;" >
@@ -55,11 +65,13 @@
                   
                 </td>
             </tr>
-          
-            @endforeach
+           
         </tbody>
+        @endforeach
        
     </table>
+   
+         
 </div>
 
 
