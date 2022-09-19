@@ -8,7 +8,7 @@
 <div class="card-heder">Category Page</div>
 
 <div class="card-body text-center">
-    <h5 class="card-title"> Category Name: {{ $categories->category_name }}</h5><br/>
+    <h5 class="card-title"> Category Name: {{ $category->category_name }}</h5><br/>
 
 
     

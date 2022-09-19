@@ -10,7 +10,7 @@
 
      <div class="card-body">
 
-     
+
        @if ($errors->any())
         <div class="alert alert-danger">
          <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -21,25 +21,30 @@
          </ul>
        </div>
        @endif
-     
+
         <form action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-    
-    
+
+
 
          <label>Enter Book name</label><br>
             <input type="string" name="book_name" class="form-control"><br>
 
             <label>Enter Author name</label><br>
             <input type="string" name="author_name"  class="form-control" ><br>
-
-            <label>Enter Category ID </label><br>
-            <input type="string" name="category_Id" class="form-control"><br>
-
+            <div class="form-group col-md-12 mb-3">
+                <label>Enter Category</label><br>
+                <select name="category_id" class="form-select">
+                <option value="">Select Category</option>
+                @foreach($categories as $key => $category)
+                    <option value="{{$category->id}}">{{$category->category_name}}</option>
+                @endforeach
+                </select>
+            </div>
             <label>Enter Book Qty</label><br>
             <input type="number" name="qty" class="form-control"><br>
 
-          
+
 
             <label>Enter Book image</label><br>
             <input type="file" name="image" class="form-control" > <br>
@@ -57,8 +62,8 @@
        </form>
 
      </div>
-     
+
      @endsection
    </div>
- 
+
 </div>

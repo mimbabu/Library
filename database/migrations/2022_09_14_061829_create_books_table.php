@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("book_name");
             $table->string("author_name");
-            $table->unsignedInteger("category_Id")->nullable();
+            $table->unsignedInteger("category_id")->nullable();
             $table->string("qty");
             $table->string("image");
             $table->string("publish_year")->nullable();

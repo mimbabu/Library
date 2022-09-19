@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Book;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use DB;
+
 
 class CategoryController extends Controller
 {
@@ -19,34 +19,47 @@ class CategoryController extends Controller
 $categories = Category:: all();
 return view('categories/index', ['categories'=>$categories]);
 
-        
+
     }
 
-  
+
     public function create()
     {
-      
-        return view('categories.create');
+
+        return view('categories/create');
     }
 
-   
+
     public function store(Request $request)
     {
-        //return $request->input();
+        // return $request->input();
         // print_r($_REQUEST);
-        // die();
 
 
-        $request->validate([
-            'category_name' => 'required',
-         
-            ]);
 
-        
-            $input = $request->all();
+        // $request->validate([
+        //     'category_name' => 'required',
 
-       
-            $table->string("category_name");
+        //     ]);
+
+        $category = new Category;
+
+
+
+           $category ->category_name = $_POST['category_name'];
+           $category ->Save();
+
+        //    print_r($category );
+
+
+        //    $res =  Category::create([
+        //         'category_name'->$_POST['category_name']
+        //     ]);
+        //     print_r($res);
+            // die();
+            return redirect()->route('categories/index')
+             ->with('success','Category added successfully.');
+
 
  }
 
@@ -75,7 +88,7 @@ return view('categories/index', ['categories'=>$categories]);
         $bookupload= Category::find($category);
         return view("categories.edit")->with('categories',$category);
 
-        
+
     }
 
     /**
@@ -89,7 +102,7 @@ return view('categories/index', ['categories'=>$categories]);
     {
 
 
-         
+
 
 
         $categories =  Category::find($categories);
@@ -122,6 +135,6 @@ return view('categories/index', ['categories'=>$categories]);
 
 
 
-       
+
     }
 }

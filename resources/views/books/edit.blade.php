@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-            
+
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -23,8 +23,8 @@
                     </ul>
                 </div>
             @endif
-            
-  <form action="{{ route('books.update',$book->id) }}" method="POST" enctype="multipart/form-data"> 
+
+  <form action="{{ route('books.update',$book->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -39,9 +39,17 @@
 
 
 
-        <label>Category ID</label><br/>
-        <input type="text" name="category_Id" id="qty" value="{{$book->category_Id}}" class="form-control"/><br/>
-
+        {{-- <label>Category ID</label><br/>
+        <input type="text" name="category_Id" id="qty" value="{{$book->category_Id}}" class="form-control"/><br/> --}}
+         <div class="form-group col-md-12 mb-3">
+                <label>Enter Category</label><br>
+                <select name="category_id" class="form-select">
+                <option value="">Select Category</option>
+                @foreach($books as $key => $book)
+                    <option value="{{$book->id}}">{{$book->category_name}}</option>
+                @endforeach
+                </select>
+            </div>
 
         <label>Qty</label><br/>
         <input type="text" name="qty" id="qty" value="{{ $book->qty}}" class="form-control"/><br/>
@@ -60,13 +68,13 @@
 
 
     <button type="submit" class="btn btn-primary">Submit</button> <br/>
-     
+
 </form>
 
 
 
 @stop
- 
+
 
 
 

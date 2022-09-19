@@ -22,7 +22,7 @@ return view('bookuploads/index', ['bookuploads'=>$bookuploads]);
         // $bookuploads = DB::table('bookuploads')->get();
 
         // return view('bookupload/index', compact('bookuploads'));
-        
+
     }
 
     /**
@@ -32,7 +32,7 @@ return view('bookuploads/index', ['bookuploads'=>$bookuploads]);
      */
     public function create()
     {
-      
+
         return view('bookuploads.create');
     }
 
@@ -57,16 +57,15 @@ return view('bookuploads/index', ['bookuploads'=>$bookuploads]);
             'cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'publish_year' => 'required',
             'storage_date' => 'required',
-           
+
         ]);
 
         $input = $request->all();
 
         $bookupload = new Bookupload;
-
         $bookupload->book_name   =  $request->book_name;
         $bookupload->author_name =  $request->author_name;
-        $bookupload->category_Id =  $request->category_Id;
+        $bookupload->category_id =  $request->category_id;
         $bookupload->qty         =  $request->qty;
 
  if($request->hasfile('cover')){
@@ -116,7 +115,7 @@ else{
         $bookupload= Bookupload::find($bookupload);
         return view("bookuploads.edit")->with('bookuploads',$bookupload);
 
-        
+
     }
 
     /**
@@ -137,7 +136,7 @@ else{
             $filename = time().'.'.$extension;
             $file->move('uploads/bookuploads', $filename);
             $bookupload->cover=$filename;
-        
+
          }
 
          else{
@@ -176,6 +175,6 @@ else{
 
 
 
-       
+
     }
 }
