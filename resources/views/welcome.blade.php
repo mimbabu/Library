@@ -24,12 +24,15 @@
     <a class="navbar-brand" href="#">Book</a>
     <ul class="navbar-nav m-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{('/admin')}}">Dashboard <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{url('student')}}">Manage</a>
       </li>
-   
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('/books')}}">Show book</a>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="#">Add Book</a>
       </li>
@@ -69,12 +72,12 @@
              </div>
            </div>
            </div>
-                  
-           
-           
-           <div class="item"> 
-                    
-                  
+
+
+
+           <div class="item">
+
+
               <div class="card"  style="width:100%;">
                 <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
@@ -97,7 +100,7 @@
            </div>
                 </div>
 
-                  <div class="item"> 
+                  <div class="item">
                   <div class="card"  style="width:100%;">
                 <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
@@ -127,7 +130,7 @@
                 <a href="#" class="btn btn-primary">Borrow</a>
              </div>
            </div>
-          
+
           </div>
                   <div class="item"> <div class="card"  style="width:100%;">
                 <img class="card-img-top" src="..." alt="Card image cap">
@@ -177,5 +180,5 @@ $('.owl-carousel').owlCarousel({
 </script>
 
     </body>
- 
+
 </html>

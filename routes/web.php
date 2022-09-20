@@ -4,6 +4,7 @@ use App\http\Controllers\Backend\PagesController;
 use App\http\Controllers\Book\BookuploadController;
 use App\http\Controllers\Book\CategoryController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\IssuereturnController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +33,7 @@ require __DIR__.'/auth.php';
 Route::resource('/student', StudentController::class);
 
 
-Route::get( '/admin', [PagesController::class,'index']);
+
 
 Route::get('/book',[BookuploadController::class,'index']);
         Route::get('/add-book',[BookuploadController::class,'create']);
@@ -43,9 +44,11 @@ Route::get('/book',[BookuploadController::class,'index']);
 
 
 
-    
 
+
+        Route::get( '/admin', [PagesController::class,'index']);
 
         Route::resource('/books', BookController::class);
 
         Route::resource('/categories', CategoryController::class);
+        Route::resource('/issuereturns', IssuereturnController::class);

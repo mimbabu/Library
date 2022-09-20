@@ -1,14 +1,14 @@
-        @extends('books.layout')
+        @extends('issuereturns.layout')
         @section('content')
 
 
         <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
-                        <h2>Edit Book</h2>
+                        <h2>Edit Issue Book</h2>
                     </div>
                     <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('books.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('issuereturns.index') }}"> Back</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 </div>
             @endif
 
-  <form action="{{ route('books.update',$book->id) }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('issuereturns.update',$book->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -35,7 +35,7 @@
 
 
         <label>Author Name</label><br/>
-        <input type="text" name="author_name" id="author_name" value="{{ $book->author_name}}" class="form-control"/><br/>
+        <input type="text" name="author_name" id="author_name" value="{{ $->author_name}}" class="form-control"/><br/>
 
 
 

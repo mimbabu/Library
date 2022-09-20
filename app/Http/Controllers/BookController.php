@@ -90,7 +90,9 @@ class BookController extends Controller
 
     public function edit(Book $book)
     {
-        return view('books.edit',compact('book'));
+
+        $categories = Category::all();
+        return view('books.edit',compact('book','categories'));
     }
 
     /**
