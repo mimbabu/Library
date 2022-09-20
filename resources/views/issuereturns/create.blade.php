@@ -41,12 +41,16 @@
 
 
             <label>Enter Return date</label><br>
-            <input type="date" name="return_date" class="form-control" > <br>
+            <input type="date" name="return_date" class="form-control" > <br/>
 
 
             <label>Status</label><br>
-            <input type="string" name="status" class="form-control"><br>
-
+             <select name="status" class="form-select">
+            <option> Issued</option>
+            <option>Returned</option>
+            <option> Not returned</option>
+             </select>
+             <br/> <br/>
 
 
             <input type="submit" class="btn btn-info" title="Add New"Style=" float:left;">
