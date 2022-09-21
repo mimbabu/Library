@@ -24,31 +24,39 @@
                 </div>
             @endif
 
-  <form action="{{ route('issuereturns.update',$book->id) }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('issuereturns.update',$issuereturns->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
 
 
-         <label>Book Name</label><br/>
-        <input type="text" name="book_name" id="book_name" value="{{$book->book_name}}" class="form-control"/><br/>
+         <label>User Id</label><br/>
+        <input type="text" name="book_name" id="id" value="{{$issuereturns->id}}" class="form-control"/><br/>
 
 
         <label>Author Name</label><br/>
-        <input type="text" name="author_name" id="author_name" value="{{ $->author_name}}" class="form-control"/><br/>
 
 
 
-        <label>Category ID</label><br/>
-{{--
-        <select name="category_id" class="form-select">
-            <option value="">Select Category</option>
-            value="{{$book->category_Id}}"
+        <input type="text" name="author_name" id="author_name" value="{{ $issuereturns->user_id}}" class="form-control"/><br/>
+        <option value="">Select Category</option>
+        @foreach($users as $key => $user)
+            <option value="{{$user->id}}">{{$user->name}}</option>
+        @endforeach
+        </select>
 
 
 
-            </select> --}}
+        <label>Issue date</label><br/>
+        <input type="text" name="issue_date" id="issue_date" value="{{ $issuereturns->issue_date}}" class="form-control"/><br/>
 
+
+        <label>Return date</label><br/>
+        <input type="text" name="return_date" id="return_date" value="{{ $issuereturns->return_date}}" class="form-control"/><br/>
+
+        <label>Status</label><br/>
+
+        <input type="text" name="status" id="status" value="{{ $issuereturns->status}}" class="form-control"/><br/>
 
 
 
@@ -56,7 +64,7 @@
 
 
         <div class="form-group col-md-12 mb-3">
-            <label>Enter Category</label><br>
+            <label>Status</label><br>
             <select name="category_id" class="form-select">
 
              <option value="">Select Category</option>
@@ -67,20 +75,13 @@
 
 
 
-        <label>Qty</label><br/>
-        <input type="text" name="qty" id="qty" value="{{ $book->qty}}" class="form-control"/><br/>
-
-        <label>Cover</label><br/>
-        <input type="file" name="image" id="image" src="/image/{{ $book->image }}" class="img-responsive" width="150px" height="200px"/><br/>
-
-
-        <label>Publish year</label><br/>
-        <input type="text" name="publish_year" id="qty" value="{{$book->publish_year}}" class="form-control"/><br/>
 
 
 
-        <label>Storage date</label><br/>
-        <input type="date" name="storage_date" id="qty" value="{{$book->storage_date}}" class="form-control"/><br/>
+
+
+
+
 
 
     <button type="submit" class="btn btn-primary">Submit</button> <br/>

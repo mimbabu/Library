@@ -13,7 +13,7 @@
      <div class="card-header text-center"><h2>Issue Books</h2></div>
 
         <div class="pull-right p-3">
-             <a class="btn btn-success" href="{{ route('issuereturns.create') }}"> Add book</a>
+             <a class="btn btn-success" href="{{ route('issuereturns.create') }}"> Issue book</a>
          </div>
 
 
@@ -33,7 +33,6 @@
                 <th>Id</th>
                 <th>User Name</th>
                 <th>Book Name</th>
-                <th>Category ID</th>
                 <th>Issue Date</th>
                 <th>Return Date</th>
                 <th>Status</th>
@@ -46,7 +45,7 @@
                 @foreach ($issuereturns as $issuereturn)
 
 
-                <td>{{ ++$i }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $issuereturn->user_id }}</td>
                 <td>{{ $issuereturn->book_name }}</td>
                 <td>{{ $issuereturn->issue_date }}</td>

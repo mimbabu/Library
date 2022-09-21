@@ -85,7 +85,7 @@ return view('categories/index', ['categories'=>$categories]);
      */
     public function edit(Category $category)
     {
-        $bookupload= Category::find($category);
+        $category= Category::find($category);
         return view("categories.edit")->with('categories',$category);
 
 

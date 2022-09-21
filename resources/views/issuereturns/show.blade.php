@@ -8,7 +8,7 @@
 <div class="card-heder">Book Issue Page</div>
 
 <div class="card-body text-center">
-    <h5 class="card-title"> Book Name: {{ $issuereturns->user_id }}</h5><br/>
+    <h5 class="card-title"> Book Name: {{ $issuereturns->user_name }}</h5><br/>
     <p class="card-text">Author Name:{{ $issuereturns->book_name }}</p><br/>
 
     <p class="card-text">Category Name <br> {{ $issuereturns->issue_date }}</p><br/>

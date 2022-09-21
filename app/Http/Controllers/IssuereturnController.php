@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Issuereturn;
 use App\Models\User;
+use App\Models\Book;
+use App\Models\Category;
+
 use Illuminate\Http\Request;
 
 class IssuereturnController extends Controller
@@ -18,7 +21,11 @@ class IssuereturnController extends Controller
 
     public function create()
     {
-        return view('issuereturns.create');
+        return view('issuereturns.create',
+       ['categories' => Category::all(),
+       'users' => User::all(),
+       'books' => Book::all()
+       ]) ;
     }
 
 
@@ -27,7 +34,7 @@ class IssuereturnController extends Controller
 
        Issuereturn::create($request->all());
        return redirect()->route('issuereturns.index')
-       ->with('success','Product created successfully.');
+       ->with('success','Book issued successfully.');
 
     }
 
@@ -35,7 +42,7 @@ class IssuereturnController extends Controller
     public function show(Issuereturn $issuereturn)
     {
         return view('issuereturns.show',[
-            'issuereturns' => $issuereturn
+            'Issuereturn'=> $issuereturn
         ]);
     }
 
@@ -43,8 +50,12 @@ class IssuereturnController extends Controller
     public function edit(Issuereturn $issuereturn)
     {
 
-        $issuereturn = Issuereturn::all();
-        return view('issuereturns.edit',compact('issuereturn','issuereturn'));
+        $categories = Category::all();
+        $categories = User::all();
+        $categories = Book::all();
+        return view('issuereturns.edit',compact('issuereturn','categories')
+
+    );
     }
 
 

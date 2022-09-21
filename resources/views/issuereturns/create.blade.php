@@ -25,15 +25,39 @@
         <form action="{{ route('issuereturns.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
+        <div class="form-group col-md-12 mb-3">
+            <label>Enter user</label><br>
+            <select name="user_id" class="form-select">
+            <option value="">Select user</option>
+            @foreach($users as $key => $user)
+                <option value="{{$user->name}}">{{$user->name}}</option>
+            @endforeach
+            </select>
+
+         {{-- <label>Select  Librarian  Id</label><br>
+          <input type="string" name="user_id" class="form-control"><br> --}}
+
+          {{-- <div class="form-group col-md-12 mb-3">
+            <label>Enter Category</label><br>
+            <select name="category_id" class="form-select">
+            <option value="">Select Category</option>
+            @foreach($categories as $key => $category)
+                <option value="{{$category->id}}">{{$category->category_name}}</option>
+            @endforeach
+            </select> --}}
 
 
-         <label>Enter user Id</label><br>
-          <input type="string" name="user_id" class="form-control"><br>
 
+            <div class="form-group col-md-12 mb-3">
+                <label>Select Book</label><br>
+                <select name="book_name" class="form-select">
+                <option value="">Select book name</option>
+                @foreach($books as $key => $book)
+                    <option value="{{$book->book_name}}">{{$book->book_name}}</option>
+                @endforeach
+                </select><br/>
+            {{-- <input type="string" name="book_name"  class="form-control" ><br> --}}
 
-
-            <label>Enter Book name</label><br>
-            <input type="string" name="book_name"  class="form-control" ><br>
 
             <label>Enter Issue date</label><br>
             <input type="date" name="issue_date" class="form-control"><br>
