@@ -10,7 +10,7 @@
 <div class="card-heder p-2 text-center"><h2>Edit Book here</h2></div>
 
 <div class="card-body">
-  
+
 @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -25,10 +25,15 @@
 
 <form action="/edit-book/{id}" method="POST" enctype="multipart/form-data" >
 @csrf
-
+@foreach ($bookuploads as $bookupload)
     @method("PUT")
     @method("PATCH")
-  
+
+
+
+
+
+
 <label>Book Name</label><br/>
 <input type="text" name="book_name" id="book_name" value="{{$bookupload->book_name}}" class="form-control"/><br/>
 
@@ -60,6 +65,7 @@
 
 <input type="submit"  value="Update"class="btn btn-info"/> <br/>
 
+@endforeach
 
 </form>
 
@@ -71,9 +77,8 @@
 </div>
 </div>
 
-
 @stop
- 
+
 
 
 

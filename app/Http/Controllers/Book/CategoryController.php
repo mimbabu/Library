@@ -17,6 +17,8 @@ class CategoryController extends Controller
     {
 
 $categories = Category:: all();
+
+
 return view('categories/index', ['categories'=>$categories]);
 
 
@@ -32,15 +34,10 @@ return view('categories/index', ['categories'=>$categories]);
 
     public function store(Request $request)
     {
-        // return $request->input();
-        // print_r($_REQUEST);
 
 
 
-        // $request->validate([
-        //     'category_name' => 'required',
 
-        //     ]);
 
         $category = new Category;
 
@@ -49,14 +46,7 @@ return view('categories/index', ['categories'=>$categories]);
            $category ->category_name = $_POST['category_name'];
            $category ->Save();
 
-        //    print_r($category );
 
-
-        //    $res =  Category::create([
-        //         'category_name'->$_POST['category_name']
-        //     ]);
-        //     print_r($res);
-            // die();
             return redirect()->route('categories/index')
              ->with('success','Category added successfully.');
 
@@ -86,6 +76,7 @@ return view('categories/index', ['categories'=>$categories]);
     public function edit(Category $category)
     {
         $category= Category::find($category);
+
         return view("categories.edit")->with('categories',$category);
 
 
@@ -98,7 +89,7 @@ return view('categories/index', ['categories'=>$categories]);
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $bookupload)
+    public function update(Request $request, Category $categories)
     {
 
 

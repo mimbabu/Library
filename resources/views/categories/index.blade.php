@@ -13,7 +13,7 @@
      <div class="card-header text-center"><h2>Add Category</h2></div>
 
         <div class="pull-right p-3">
-             <a class="btn btn-success" href="{{ route('categories.create') }}"> Add book</a>
+             <a class="btn btn-success" href="{{ route('categories.create') }}"> Add Category</a>
          </div>
 
 
@@ -30,14 +30,17 @@
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
             <tr>
+
                 <th>Id</th>
                 <th>Category Name</th>
+                <th>Action</th>
 
             </tr>
         </thead>
         <tbody>
+            @foreach ($categories as $category)
             <tr>
-                @foreach ($categories as $category)
+
 
 
                 <td> {{  $category->id }} </td>
@@ -50,7 +53,7 @@
 
                 <a class="btn btn-info" href="{{ route('categories.show',$category->id) }}">Show</a>
 
-                <a class="btn btn-primary" href="{{ route('categories.edit',$categories->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('categories.edit',$category->id) }}">Edit</a>
 
                 @csrf
                 @method('DELETE')
@@ -59,9 +62,9 @@
                </form>
              </td>
          </tr>
-
+         @endforeach
      </tbody>
-        @endforeach
+
 
     </table>
 

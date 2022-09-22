@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-            
+
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -23,10 +23,12 @@
                     </ul>
                 </div>
             @endif
-            
-  <form action="{{ route('categories.update',$category->id) }}" method="POST" enctype="multipart/form-data"> 
+
+  <form action="{{ route('categories.update',$categories->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+
+
 
 
 
@@ -34,16 +36,16 @@
         <input type="text" name="category_name" id="category_name" value="{{$categories->category_name}}" class="form-control"/><br/>
 
 
-    
 
 
 
-     
 
 
-    
 
-       
+
+
+
+
 
 
 
@@ -52,13 +54,13 @@
 
 
     <button type="submit" class="btn btn-primary">Submit</button> <br/>
-     
+
 </form>
 
 
 
 @stop
- 
+
 
 
 

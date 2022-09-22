@@ -31,23 +31,13 @@
 
 
          <label>Book Name</label><br/>
-        <input type="text" name="book_name" id="book_name" value="{{$book->book_name}}" class="form-control"/><br/>
+        <input type="text" name="book_name" id="book_name" value="{{$bookuploads->book_name}}" class="form-control"/><br/>
 
 
         <label>Author Name</label><br/>
-        <input type="text" name="author_name" id="author_name" value="{{ $book->author_name}}" class="form-control"/><br/>
+        <input type="text" name="author_name" id="author_name" value="{{ $bookuploads->author_name}}" class="form-control"/><br/>
 
 
-
-        <label>Category ID</label><br/>
-{{--
-        <select name="category_id" class="form-select">
-            <option value="">Select Category</option>
-            value="{{$book->category_Id}}"
-
-
-
-            </select> --}}
 
 
 
@@ -68,19 +58,19 @@
 
 
         <label>Qty</label><br/>
-        <input type="text" name="qty" id="qty" value="{{ $book->qty}}" class="form-control"/><br/>
+        <input type="text" name="qty" id="qty" value="{{ $bookuploads->qty}}" class="form-control"/><br/>
 
         <label>Cover</label><br/>
-        <input type="file" name="image" id="image" src="/image/{{ $book->image }}" class="img-responsive" width="150px" height="200px"/><br/>
+        <input type="file" name="image" id="image" src="/image/{{ $bookuploads->image }}" class="img-responsive" width="150px" height="200px"/><br/>
 
 
         <label>Publish year</label><br/>
-        <input type="text" name="publish_year" id="qty" value="{{$book->publish_year}}" class="form-control"/><br/>
+        <input type="text" name="publish_year" id="qty" value="{{$bookuploads->publish_year}}" class="form-control"/><br/>
 
 
 
         <label>Storage date</label><br/>
-        <input type="date" name="storage_date" id="qty" value="{{$book->storage_date}}" class="form-control"/><br/>
+        <input type="date" name="storage_date" id="qty" value="{{$bookuploads->storage_date}}" class="form-control"/><br/>
 
 
     <button type="submit" class="btn btn-primary">Submit</button> <br/>

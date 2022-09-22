@@ -8,11 +8,14 @@
 <div class="card-heder">Category Page</div>
 
 <div class="card-body text-center">
-    <h5 class="card-title"> Category Name: {{ $category->category_name }}</h5><br/>
+    @foreach ($categories as $item)
+    <h5 class="card-title"> Category Name: {{ $item->category_name }}</h5><br/>
+    @endforeach
 
 
-    
-   
+
+
+
 </div>
 <div class="p-2"><a  href="{{ route('categories.index') }}" title="Add New"Style=" float:right;"><button class="btn btn-info btn-sm" "><span><i class="fa-solid fa-book-user"></i></span>Back</button></a></div>
 
