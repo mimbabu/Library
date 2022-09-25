@@ -18,6 +18,22 @@ class BookController extends Controller
 
 
 
+public function bookshow()
+{
+
+    $books = Book::get();
+
+    //print_r($b);
+
+   // die()limit(1)->;\
+
+
+    return view('welcome',compact('books'));
+}
+
+
+
+
 
 
     /**

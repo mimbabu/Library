@@ -59,23 +59,36 @@
 
 
   <scection class="carusal" Id ="carusal_wrapper">
+
     <div class="container pt-5 mt-5">
          <div class="row pt-5 mb-5">
+
           <div class="owl-carousel">
-                  <div class="item"> <div class="card"  style="width:100%;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Book Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author</h6>
+            @foreach ( $books as $b )
+                  <div class="item">
+
+
+
+
+
+                     <div class="card"  style="width:100%;">
+                <img class="card-img-top"  src="/image/{{ $b->image }}" width="100%" height="80" class="img-responsive"alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">Book Name {{ $b->book_name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Author{{ $b->author_name }}</h6>
+
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Borrow</a>
+
              </div>
            </div>
+
+
            </div>
 
 
 
-           <div class="item">
+           {{-- <div class="item">
 
 
               <div class="card"  style="width:100%;">
@@ -142,8 +155,11 @@
              </div>
            </div>
            </div>
-          </div>
+          </div> --}}
+
+          @endforeach
       </div>
+
     </div>
 
  </scection>

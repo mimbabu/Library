@@ -97,8 +97,10 @@ return view('categories/index', ['categories'=>$categories]);
 
 
         $categories =  Category::find($categories);
-        $input =$request->all();
-        $categories->update($input);
+        // $input =$request->all();
+        // $categories->update($input);
+        Category::findOrFail($categories)->first()->update($request->all())->save();
+        // Category::find($categories)->update($request->all());
         return redirect('categories')->with('flash_massage', 'Category updated successfully');
 
     }

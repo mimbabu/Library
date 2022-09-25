@@ -24,16 +24,21 @@
                 </div>
             @endif
 
-  <form action="{{ route('categories.update',$categories->id) }}" method="POST" enctype="multipart/form-data">
+
+
+ @foreach ($categories as $ct)
+
+
+  <form action="{{ route('categories.update',$ct->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
-
+                @method("PATCH")
 
 
 
          <label>Category Name</label><br/>
-        <input type="text" name="category_name" id="category_name" value="{{$categories->category_name}}" class="form-control"/><br/>
+        <input type="text" name="category_name" id="category_name" value="{{$ct->category_name}}" class="form-control"/><br/>
 
 
 
@@ -55,8 +60,10 @@
 
     <button type="submit" class="btn btn-primary">Submit</button> <br/>
 
-</form>
 
+
+</form>
+@endforeach
 
 
 @stop
