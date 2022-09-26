@@ -33,14 +33,19 @@ public function bookshow()
 
 
 
+public function bookdetails(Book $book){
+
+    return view('details',compact('book'));
 
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // $data = Book::find($id);
+    // return view('details',[ 'b'=>$data]);
+}
+
+
+
+
     public function create()
     {
         return view('books.create',[

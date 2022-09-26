@@ -78,7 +78,7 @@
                 <h6 class="card-subtitle mb-2 text-muted">Author{{ $b->author_name }}</h6>
 
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Borrow</a>
+        <a href="/details/{{ $b->id }}" class="btn btn-primary">View</a>
 
              </div>
            </div>
@@ -87,77 +87,7 @@
            </div>
 
 
-
-           {{-- <div class="item">
-
-
-              <div class="card"  style="width:100%;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Book Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Borrow</a>
-             </div>
-           </div>
-           </div>
-                  <div class="item">
-                  <div class="card"  style="width:100%;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Book Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Borrow</a>
-             </div>
-           </div>
-                </div>
-
-                  <div class="item">
-                  <div class="card"  style="width:100%;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Book Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Borrow</a>
-             </div>
-           </div>
-          </div>
-                  <div class="item"><div class="card"  style="width:100%;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Book Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Borrow</a>
-             </div>
-           </div>
-          </div>
-                  <div class="item"> <div class="card"  style="width:100%;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Book Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Borrow</a>
-             </div>
-           </div>
-
-          </div>
-                  <div class="item"> <div class="card"  style="width:100%;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Book Name</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Borrow</a>
-             </div>
-           </div>
-           </div>
-          </div> --}}
-
-          @endforeach
+@endforeach
       </div>
 
     </div>

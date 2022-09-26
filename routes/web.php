@@ -27,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BookController::class, 'bookshow']);
 
+Route::get('/details/{book}', [BookController::class, 'bookdetails']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
