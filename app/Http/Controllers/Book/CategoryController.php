@@ -32,7 +32,7 @@ return view('categories/index', ['categories'=>$categories]);
     }
 
 
-    public function store(Request $request)
+    public function store()
     {
 
 

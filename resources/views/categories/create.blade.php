@@ -10,7 +10,7 @@
 
      <div class="card-body">
 
-     
+
        @if ($errors->any())
         <div class="alert alert-danger">
          <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -21,11 +21,11 @@
          </ul>
        </div>
        @endif
-     
+
         <form action="{{ route('categories.store') }}" method="POST">
         @csrf
-    
-    
+
+
 
          <label>Enter Category name</label><br>
             <input type="string" name="category_name" class="form-control"><br>
@@ -37,8 +37,8 @@
        </form>
 
      </div>
-     
+
      @endsection
    </div>
- 
+
 </div>

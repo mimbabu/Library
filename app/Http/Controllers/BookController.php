@@ -21,14 +21,11 @@ class BookController extends Controller
 public function bookshow()
 {
 
-    $books = Book::get();
+        $lbooks = Book::orderBy('id', 'desc')->take(2)->get();
+        $pbooks = Book::where("category_id", 2)->get();
 
-    //print_r($b);
-
-   // die()limit(1)->;\
-
-
-    return view('welcome',compact('books'));
+       // print_r($books);
+       return view('welcome',compact('lbooks',"pbooks"));
 }
 
 
@@ -39,9 +36,19 @@ public function bookdetails(Book $book){
 
 
 
-    // $data = Book::find($id);
-    // return view('details',[ 'b'=>$data]);
+
 }
+
+
+public function recentBooks()
+    {
+        $lbooks = Book::orderBy('id', 'desc')->take(6)->get();
+        $pbooks = Book::where("category_id", 2)->get();
+
+       // print_r($books);
+       return view('welcome',compact('lbooks',"pbooks"));
+    }
+
 
 
 
@@ -163,6 +170,9 @@ public function bookdetails(Book $book){
         return redirect()->route('books.index')
                         ->with('success','Book deleted successfully');
     }
+
+
+
 
 
 
