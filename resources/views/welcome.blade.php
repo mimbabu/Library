@@ -10,8 +10,8 @@
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
-        <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+        <link rel="stylesheet" href="{{ url('css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ url('css/owl.theme.default.min.css') }}">
 
 
     </head>
@@ -171,8 +171,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<script src="{{ asset('js/jquery.3.6.min.js') }}"></script>
-    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
+<script src="{{ url('js/jquery.3.6.min.js') }}"></script>
+    <script src="{{ url('js/owl.carousel.min.js') }}"></script>
 
 <script>
     $('#slider').owlCarousel({
@@ -191,7 +191,7 @@
                 nav:false
             },
             1000:{
-                items:5,
+                items:6,
                 nav:true,
                 loop:true
             }

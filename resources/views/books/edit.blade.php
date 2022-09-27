@@ -33,7 +33,6 @@
          <label>Book Name</label><br/>
         <input type="text" name="book_name" id="book_name" value="{{$bookuploads->book_name}}" class="form-control"/><br/>
 
-
         <label>Author Name</label><br/>
         <input type="text" name="author_name" id="author_name" value="{{ $bookuploads->author_name}}" class="form-control"/><br/>
 
