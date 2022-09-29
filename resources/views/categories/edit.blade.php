@@ -33,7 +33,7 @@
                 @csrf
                 @method('PUT')
 
-                @method("PATCH")
+
 
 
 

@@ -28,6 +28,7 @@
 
 
     <table id="example" class="table table-striped" style="width:100%">
+
         <thead>
             <tr>
                 <th>Id</th>
@@ -69,9 +70,9 @@
                </form>
              </td>
          </tr>
-
+         @endforeach
      </tbody>
-        @endforeach
+
 
     </table>
 
@@ -79,7 +80,7 @@
 
     </div>
 
-<div class="row">{!! $books->links() !!} </div>
+    <div class="row">{!! $books->links() !!} </div>
 
 
 @endsection
