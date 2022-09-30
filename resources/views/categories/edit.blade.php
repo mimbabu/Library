@@ -26,10 +26,10 @@
 
 
 
- @foreach ($categories as $ct)
 
 
-  <form action="{{ route('categories.update',$ct->id) }}" method="POST">
+
+  <form action="{{ route('categories.update',$category->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -38,7 +38,7 @@
 
 
          <label>Category Name</label><br/>
-        <input type="text" name="category_name" id="category_name" value="{{$ct->category_name}}" class="form-control"/><br/>
+        <input type="text" name="category_name" id="category_name" value="{{$category->category_name}}" class="form-control"/><br/>
 
 
 
@@ -63,7 +63,7 @@
 
 
 </form>
-@endforeach
+
 
 
 @stop

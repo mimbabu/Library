@@ -24,17 +24,16 @@
                 </div>
             @endif
 
+
   <form action="{{ route('books.update',$book->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
-
-
          <label>Book Name</label><br/>
-        <input type="text" name="book_name" id="book_name" value="{{$bookuploads->book_name}}" class="form-control"/><br/>
+        <input type="text" name="book_name" id="book_name" value="{{$book->book_name}}" class="form-control"/><br/>
 
         <label>Author Name</label><br/>
-        <input type="text" name="author_name" id="author_name" value="{{ $bookuploads->author_name}}" class="form-control"/><br/>
+        <input type="text" name="author_name" id="author_name" value="{{ $book->author_name}}" class="form-control"/><br/>
 
 
 
@@ -50,33 +49,31 @@
 
              <option value="">Select Category</option>
              @foreach($categories as $c)
-                <option @if($book->category_id == $c->id) selected @endif value="{{$c->id}}">{{$c->category_name}}</option>
+                <option  value="{{$c->id}}" {{$book->category_id == $c->id ? 'selected' : ''}} >{{$c->category_name}}</option>
             @endforeach
             </select>
 
 
 
         <label>Qty</label><br/>
-        <input type="text" name="qty" id="qty" value="{{ $bookuploads->qty}}" class="form-control"/><br/>
+        <input type="text" name="qty" id="qty" value="{{ $book->qty}}" class="form-control"/><br/>
 
         <label>Cover</label><br/>
-        <input type="file" name="image" id="image" src="/image/{{ $bookuploads->image }}" class="img-responsive" width="150px" height="200px"/><br/>
+        <input type="file" name="image" id="image" src="/image/{{ $book->image }}" class="img-responsive" width="150px" height="200px"/><br/>
 
 
         <label>Publish year</label><br/>
-        <input type="text" name="publish_year" id="qty" value="{{$bookuploads->publish_year}}" class="form-control"/><br/>
+        <input type="text" name="publish_year" id="qty" value="{{$book->publish_year}}" class="form-control"/><br/>
 
 
 
         <label>Storage date</label><br/>
-        <input type="date" name="storage_date" id="qty" value="{{$bookuploads->storage_date}}" class="form-control"/><br/>
+        <input type="date" name="storage_date" id="qty" value="{{$book->storage_date}}" class="form-control"/><br/>
 
 
     <button type="submit" class="btn btn-primary">Submit</button> <br/>
 
 </form>
-
-
 
 @stop
 

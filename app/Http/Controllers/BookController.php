@@ -118,8 +118,8 @@ public function recentBooks()
 
     public function edit(Book $book)
     {
+         $categories = Category::all();
 
-        $categories = Category::all();
         return view('books.edit',compact('book','categories'));
     }
 

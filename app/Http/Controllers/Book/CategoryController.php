@@ -75,9 +75,19 @@ return view('categories/index', ['categories'=>$categories]);
      */
     public function edit(Category $category)
     {
-        $category= Category::find($category);
 
-        return view("categories.edit")->with('categories',$category);
+
+
+
+        return view('categories.edit',compact('category'));
+
+
+
+
+        // Category::find($categories)->update($request->all());
+        return redirect('categories')->with('flash_massage', 'Category updated successfully');
+
+
 
 
     }
@@ -89,18 +99,12 @@ return view('categories/index', ['categories'=>$categories]);
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $categories)
+    public function update( Category $category)
     {
 
+        $category->update();
 
 
-
-
-        $categories =  Category::find($categories);
-        // $input =$request->all();
-        // $categories->update($input);
-        Category::findOrFail($categories)->first()->update($request->all())->save();
-        // Category::find($categories)->update($request->all());
         return redirect('categories')->with('flash_massage', 'Category updated successfully');
 
     }
