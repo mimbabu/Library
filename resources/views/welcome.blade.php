@@ -55,68 +55,23 @@
   </div>
 </nav>
 
-
-
-
-
-  {{-- <scection class="carusal" Id ="carusal_wrapper">
-
+<scection class="carusal" Id ="carusal_wrapper">
     <div class="container pt-5 mt-5">
-         <div class="row pt-5 mb-5">
+      <div class="row">
+        <div class="header p-3">
+            <h1>New Books</h1>
 
-          <div class="owl-carousel">
-            @foreach ( $lbooks as $b )
+        </div>
+        <div id = "slider" class="owl-carousel">
+            @foreach ( $pbooks as $data )
                   <div class="item">
-
-
-
-
-
                      <div class="card"  style="width:100%;">
-                <img class="card-img-top"  src="/image/{{ $b->image }}" width="100%" height="80" class="img-responsive"alt="Card image cap">
+                <img class="card-img-top"  src="/image/{{ $data->image }}" width="100%" height="220" class="img-responsive"alt="Card image cap">
                 <div class="card-body">
-                <h5 class="card-title">Book Name {{ $b->book_name }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author{{ $b->author_name }}</h6>
-
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="/details/{{ $b->id }}" class="btn btn-primary">View</a>
-
-             </div>
-           </div>
+                {{-- <h5 class="card-title">Book Name {{ $data->book_name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Author{{ $data->author_name }}</h6> --}}
 
 
-           </div>
-
-
-@endforeach
-      </div>
-
-    </div>
-
- </scection> --}}
-
-
-
- <scection class="carusal" Id ="carusal_wrapper">
-
-    <div class="container pt-5 mt-5">
-         <div class="row pt-5 mb-5">
-{{-- <h1>Latest Book</h1>
-          <div class="owl-carousel">
-            @foreach ( $lbooks as $data )
-                  <div class="item">
-
-
-
-
-
-                     <div class="card"  style="width:100%;">
-                <img class="card-img-top"  src="/image/{{ $data->image }}" width="100%" height="80" class="img-responsive"alt="Card image cap">
-                <div class="card-body">
-                <h5 class="card-title">Book Name {{ $data->book_name }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Author{{ $data->author_name }}</h6>
-
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a href="/details/{{ $data->id }}" class="btn btn-primary">View</a>
 
              </div>
@@ -126,50 +81,95 @@
            </div>
 
 
-@endforeach
+      @endforeach
       </div>
 
-    </div> --}}
-
-
-    <h1>Book(Poem )</h1>
-    <div id = "slider" class="owl-carousel">
-      @foreach ( $pbooks as $data )
-            <div class="item">
 
 
 
 
-
-               <div class="card"  style="width:100%;">
-          <img class="card-img-top"  src="/image/{{ $data->image }}" width="100%" height="80" class="img-responsive"alt="Card image cap">
-          <div class="card-body">
-          <h5 class="card-title">Book Name {{ $data->book_name }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Author{{ $data->author_name }}</h6>
-
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  <a href="/details/{{ $data->id }}" class="btn btn-primary">View</a>
-
-       </div>
-     </div>
+    </div>
+   </div>
+</scection>
 
 
-     </div>
 
+<scection class="carusal" Id ="carusal_wrapper">
+    <div class="container pt-5 mt-5">
+      <div class="row">
+        <div class="header p-3">
+            <h1>Classic  Books</h1>
 
-@endforeach
-</div>
+        </div>
 
-</div>
+        <div id = "slider2" class="owl-carousel">
+            @foreach ( $lbooks as $data )
+                  <div class="item">
 
 
 
 
- </scection>
+
+                     <div class="card"  style="width:100%;">
+                <img class="card-img-top"  src="/image/{{ $data->image }}" width="100%" height="220" class="img-responsive"alt="Card image cap">
+                <div class="card-body">
+                {{-- <h5 class="card-title">Book Name {{ $data->book_name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Author{{ $data->author_name }}</h6> --}}
+
+
+        <a href="/details/{{ $data->id }}" class="btn btn-primary">View</a>
+
+             </div>
+           </div>
+           </div>
+
+      @endforeach
+      </div>
+
+    </div>
+   </div>
+</scection>
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<scection class="carusal" Id ="carusal_wrapper">
+    <div class="container pt-5 mt-5">
+      <div class="row">
+        <div class="header p-3">
+            <h1>Books we love </h1>
+
+        </div>
+
+        <div id = "slider3" class="owl-carousel">
+            @foreach ( $fbooks as $data )
+                  <div class="item">
+
+
+
+
+
+                     <div class="card"  style="width:100%;">
+                <img class="card-img-top"  src="/image/{{ $data->image }}" width="100%" height="220" class="img-responsive"alt="Card image cap">
+                <div class="card-body">
+                {{-- <h5 class="card-title">Book Name {{ $data->book_name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Author{{ $data->author_name }}</h6> --}}
+
+
+        <a href="/details/{{ $data->id }}" class="btn btn-primary">View</a>
+
+             </div>
+           </div>
+           </div>
+
+      @endforeach
+      </div>
+
+    </div>
+   </div>
+</scection>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script src="{{ url('js/jquery.3.6.min.js') }}"></script>
     <script src="{{ url('js/owl.carousel.min.js') }}"></script>
@@ -199,7 +199,58 @@
     })
     </script>
 
+<script>
+$('#slider2').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:false,
+    responsiveClass:true,
+    autoplay:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:3,
+            nav:false
+        },
+        1000:{
+            items:6,
+            nav:true,
+            loop:true
+        }
+    }
+})
+</script>
 
+
+
+
+<script>
+    $('#slider3').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:false,
+        responsiveClass:true,
+        autoplay:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:true
+            },
+            600:{
+                items:3,
+                nav:false
+            },
+            1000:{
+                items:6,
+                nav:true,
+                loop:true
+            }
+        }
+    })
+    </script>
 
 
 

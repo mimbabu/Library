@@ -23,9 +23,10 @@ public function bookshow()
 
         $lbooks = Book::orderBy('id', 'desc')->take(2)->get();
         $pbooks = Book::where("category_id", 2)->get();
+        $fbooks = Book::where("category_id", 19)->get();
 
        // print_r($books);
-       return view('welcome',compact('lbooks',"pbooks"));
+       return view('welcome',compact('lbooks',"pbooks",'fbooks'));
 }
 
 
