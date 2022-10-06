@@ -20,7 +20,7 @@
     <p class="card-text">Storage Date:{{ $book->storage_date }}</p>
 </div>
 
-<div class="p-2"><a  href="#" title="Add New"Style=" float:left;"><button class="btn btn-info btn-sm" ">Borrow</button></a></div>
+<div class="p-2"><a  href="{{ route('issuereturns.create') }}" title="Add New"Style=" float:left;"><button class="btn btn-info btn-sm" ">Borrow</button></a></div>
 
 <div class="p-2"><a  href="{{ ('/') }}" title="Add New"Style=" float:right;"><button class="btn btn-info btn-sm" "><span><i class="fa-solid fa-book-user"></i></span>Back</button></a></div>
 
