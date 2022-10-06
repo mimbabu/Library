@@ -98,6 +98,29 @@
                     <span>Charts</span></a>
             </li>
 
+
+
+            <li class="nav-item">
+                <a class="nav-link" >
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Charts</span></a>
+            </li>
+
+
+
+                <!-- Authentication -->
+                <li class="nav-item">   <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-dropdown-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>
+            </li>
+
+
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
